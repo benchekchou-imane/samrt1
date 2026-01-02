@@ -1,20 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
-import Dashboard from "./Dashboard";
-import VerifyEmail from "./VerifyEmail";
+// frontend/routes/AppRouter.jsx
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Home from '../pages/Home';
+import Dashboard from '../pages/Dashboard';
 
-function App() {
+function AppRouter() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/verify-email" element={<VerifyEmail />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      {/* Ajoutez vos autres routes ici */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 
-export default App;
+export default AppRouter;
